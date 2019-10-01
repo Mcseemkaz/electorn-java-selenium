@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>Raccoon-UI-Automation</groupId>
+    <artifactId>Raccoon-UI-Automation</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+    </properties>
+
+<dependencies>
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-api</artifactId>
+        <version>5.5.1</version>
+        <scope>test</scope>
+    </dependency>
+
+    <dependency>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M3</version>
+    </dependency>
+
+    <dependency>
+        <groupId>com.github.2gis.winium</groupId>
+        <artifactId>winium-elements-desktop</artifactId>
+        <version>0.2.0-1</version>
+    </dependency>
+
+    <dependency>
+        <groupId>com.github.2gis.winium</groupId>
+        <artifactId>winium-webdriver</artifactId>
+        <version>0.1.0-1</version>
+    </dependency>
+
+
+</dependencies>
+
+</project>
