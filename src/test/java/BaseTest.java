@@ -1,3 +1,6 @@
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Config;
+import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -9,39 +12,42 @@ import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.winium.WiniumDriver;
 import services.DriverProvider;
-import services.WiniumDriverBase;
+
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
 
 public class BaseTest {
 
-    WebDriver driver;
+    //WebDriver driver;
 
     @BeforeEach
     public void setUP(){
-        this.driver = DriverProvider.getDriver();
+        //this.driver = DriverProvider.getDriver();
+        WebDriverRunner.setWebDriver(DriverProvider.getDriver());
+        Config
     }
 
     @AfterEach
     public void TearDown(){
-        driver.close();
+        //driver.close();
     }
 
     @Test
-    @DisplayName("Fisrt test ONE")
+    @DisplayName("First test")
     public void testLaunchApplication(){
-        System.out.println("Helloworld Raccoon");
+        System.out.println("Hello World Raccoon");
+        open();
+        $("#using-window-events-demo-toggle").click();
+        $(By.xpath("(//div[@class='demo'])[3]//span")).waitUntil(Condition.visible, 10000).getText();
+        System.out.println(
+                $(By.xpath("(//div[@class='demo'])[3]//span"))
+                .waitUntil(Condition.visible, 10000).getText()
+        );
 
-//        Actions action = new Actions(getDriver);
-//        action.moveByOffset(1500, 870)
-//                .click()
-//                .build()
-//                .perform();
 
-        //WebElement raccoon = getDriver.findElementById("206039376");
 
         System.out.println("click");
-//        getDriver.findElementByName("Пожалуйста, введите пароль")
-//                .sendKeys("s4LRoWv8qC");
-        driver.findElement(By.name("SIGN IN")).click();
 
 
     }
