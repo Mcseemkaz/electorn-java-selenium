@@ -15,13 +15,14 @@ public class DriverProvider {
 
             ChromeOptions opt = new ChromeOptions();
             opt.setBinary(Configurator.getElectronDemoAppPath());
+            opt.addArguments("--no-sandbox");// Bypass OS security model
             opt.addArguments("start-maximized"); // open Browser in maximized mode
             opt.addArguments("disable-infobars"); // disabling infobars
             opt.addArguments("--disable-extensions"); // disabling extensions
             opt.addArguments("--disable-gpu"); // applicable to windows os only
             opt.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
-            opt.addArguments("--no-sandbox");// Bypass OS security model
             opt.addArguments("--remote-debugging-port=9222");// Bypass OS security model
+            opt.addArguments("--headless");
 
             ret = new ChromeDriver(opt) {
             };
