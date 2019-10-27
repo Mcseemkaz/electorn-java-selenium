@@ -25,18 +25,22 @@ public class BaseTest {
 
     @Test
     @DisplayName("First test")
-    public void testLaunchApplication(){
+    public void testLaunchApplication() throws InterruptedException {
+
+        Thread.sleep(5000);
         System.out.println("Hello World Raccoon");
 
-        System.out.println(
-                $(byText("SIGN IN"))
-                .waitUntil(Condition.visible, 10000)
-        );
+        $("#login").sendKeys("admin@gmail.com");
+        $("#password").sendKeys("PAROllll12");
+        $("button").click();
 
 
+        $(By.xpath("//div[@class='Home__container__2-Wx7']//p"))
+                .waitUntil(Condition.visible, 15000)
+                .shouldHave(Condition.text("Hi"));
 
 
-
+        Thread.sleep(5000);
 
     }
 }

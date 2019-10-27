@@ -13,6 +13,8 @@ public class DriverProvider {
 
         if(Configurator.getWebDriverType().equals("chrome")){
 
+            System.setProperty("webdriver.chrome.driver", "/home/mcseem/Repo/electron/electron-project/chromedriver-repo/chromedriver");
+
             ChromeOptions opt = new ChromeOptions();
             opt.setBinary(Configurator.getElectronDemoAppPath());
             opt.addArguments("--no-sandbox");// Bypass OS security model
@@ -22,7 +24,7 @@ public class DriverProvider {
             opt.addArguments("--disable-gpu"); // applicable to windows os only
             opt.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
             opt.addArguments("--remote-debugging-port=9222");// Bypass OS security model
-            opt.addArguments("--headless");
+            //opt.addArguments("--headless");
 
             ret = new ChromeDriver(opt) {
             };
