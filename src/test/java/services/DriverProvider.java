@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-
 public class DriverProvider {
 
     public static WebDriver getDriver(){
@@ -14,6 +13,7 @@ public class DriverProvider {
         if(Configurator.getWebDriverType().equals("chrome")){
 
             System.setProperty("webdriver.chrome.driver", "/home/mcseem/Repo/electron/electron-project/chromedriver-repo/chromedriver");
+            //set your path to chromedriver, anyway as better should use additional chromedriver v.2.39
 
             ChromeOptions opt = new ChromeOptions();
             opt.setBinary(Configurator.getElectronDemoAppPath());
@@ -29,7 +29,6 @@ public class DriverProvider {
             ret = new ChromeDriver(opt) {
             };
         }
-
         return  ret;
     }
 }
